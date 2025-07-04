@@ -78,7 +78,7 @@ public class EmpController {
 	}
 	
 	// 수정 - 처리 : POST + AJAX + JSON
-	@PostMapping("empUpdate")
+	@PostMapping("empUpdate")  
 	@ResponseBody // AJAX => Model 사용하지 않음
 												//JSON / 보내주는 데이터가 JSON 만이 아닐수도 있음.
 	public Map<String, Object> empUpdateProcess(@RequestBody EmpVO empVO) {
