@@ -23,7 +23,7 @@ public class EmpVO {
 	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
 	private Date hireDate;
 	private String jobId;
-	private double salary;
+	private Double salary;
 	
 	
 	

@@ -41,17 +41,22 @@ public class EmpController {
 		//classpath:/template/emp/list.html
 		//prefix              return   suffix
 	}
-	//단건조회 : GET => QueryString
+	//단건조회 : GET => QueryString | empInfo?employeeId(key)=100(value)
 	@GetMapping("empInfo")
 	public String empInfo(EmpVO empVO, Model model) {
 		EmpVO findVO = empService.findInfoById(empVO);
 		model.addAttribute("emp", findVO);
 		return "emp/info";
+		//classpath:/template/emp/info.html
+		
 	}
+	
+	
 	// 등록 - 페이지 : GET
 	@GetMapping("empInsert")
 	public String empInsertForm() {
 		return "emp/insert";
+		//classpath:/template/emp/insert.html
 	}
 	
 	// 등록 - 처리 : POST => <form/> submit QueryString
@@ -66,7 +71,7 @@ public class EmpController {
 			//등록되지 않은 경우 -> 얘는 등록이 실패했을때 실질적으로 실행되지 않을것 - 등록 실패 = 에러 이기 때문에 코드가 중단될것임.
 			url="redirect:empList";
 		}
-		return "";
+		return url;
 	}
 	
 	// 수정 - 페이지 : GET <=> 단건조회와 같음. 경로, 이름 빼고 나머지는 다 같다고 보면 됌
@@ -85,7 +90,7 @@ public class EmpController {
 		return empService.modifyInfo(empVO);
 	}
 	
-	// 삭제 - 처리 : GET
+	// 삭제 - 처리 : GET => QueryString : empDelete?employeeId=value
 	@GetMapping("empDelete")
 	public String empDelete(Integer employeeId) { 
 		empService.removeInfo(employeeId);
