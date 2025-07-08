@@ -74,7 +74,7 @@ class Sp02ApplicationTests {
 		EmpVO findVO = empMapper.selectInfo(emp);
 		
 		//2) 값 변경
-//		findVO.setSalary(2500);
+		// findVO.setSalary(2500);
 		//3) 테이블에 업데이트
 		int result = empMapper.updateInfo(1001, findVO);
 		
